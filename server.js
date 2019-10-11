@@ -8,8 +8,8 @@ app = express();
 // Download the helper library from https://www.twilio.com/docs/node/install
 // Your Account Sid and Auth Token from twilio.com/console
 // In the future we would use this with a .env file
-const accountSid = "ACdf4f99235f6136c8a6e872dd97ca8ff2";
-const authToken = "f30f42343827e8f75ac7e5dd1687de8e";
+const accountSid = process.env.ACCOUNT_SID;
+const authToken = process.env.AUTH_TOKEN;
 const client = require("twilio")(accountSid, authToken);
 
 // sending texts at periodic intervals
