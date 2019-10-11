@@ -13,7 +13,14 @@ const authToken = "f30f42343827e8f75ac7e5dd1687de8e";
 const client = require("twilio")(accountSid, authToken);
 
 // sending texts at periodic intervals
-cron.schedule("* * * * Friday", function() {
+// # 1. Entry: Minute when the process will be started [0-60]
+// # 2. Entry: Hour when the process will be started [0-23]
+// # 3. Entry: Day of the month when the process will be started [1-28/29/30/31]
+// # 4. Entry: Month of the year when the process will be started [1-12]
+// # 5. Entry: Weekday when the process will be started [0-6] [0 is Sunday]
+// #
+// # all x min = */x
+cron.schedule("0 12 * * 6", function() {
   console.log("---------------------");
   console.log("Running Cron Job");
   client.messages
